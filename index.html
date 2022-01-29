@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="index.css" />
+		<!-- Icons used from: Font awesome. Licence: https://fontawesome.com/license-->
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Calculator</title>
+	</head>
+	<!-- Divs have data-value attributes. More information about data attributes: https://www.dofactory.com/html/div/data -->
+	<body>
+		<h1>Calculator</h1>
+		<div id="calcContainer">
+			<div id="displayContainer">
+				<p id="displayUserInput"></p>
+				<input id="receiveUserInput" type="text" />
+			</div>
+			<div id="btnsContainer">
+				<div class="row">
+					<div class="btn charBtn" id="btnPlusMinus">+/-</div>
+					<div class="btn charBtn" id="btnPercentage" data-percent="/100">
+						%
+					</div>
+					<div class="btn charBtn" id="btnAC">AC</div>
+					<div class="btn">
+						<div class="btn btnWithIcon" id="btnBackSpace">
+							<img
+								src="icons/backspace-solid.svg"
+								alt="backspace symbol"
+								class="mathIcon btnBackspace"
+							/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="btn" id="btn7" data-value="7">7</div>
+					<div class="btn" id="btn8" data-value="8">8</div>
+					<div class="btn" id="btn9" data-value="9">9</div>
+					<div class="btn btnWithIcon" id="btnDivision" data-op="/">
+						<img
+							data-op="/"
+							src="icons/divide-solid.svg"
+							alt="division symbol"
+							class="mathIcon"
+						/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="btn" id="btn4" data-value="4">4</div>
+					<div class="btn" id="btn5" data-value="5">5</div>
+					<div class="btn" id="btn6" data-value="6">6</div>
+					<div class="btn btnWithIcon" id="btnMultiplication" data-op="*">
+						<img
+							data-op="*"
+							src="icons/plus-solid.svg"
+							alt="multiplication symbol"
+							class="mathIcon multiplicationSign"
+						/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="btn" id="btn1" data-value="1">1</div>
+					<div class="btn" id="btn2" data-value="2">2</div>
+					<div class="btn" id="btn3" data-value="3">3</div>
+					<div class="btn">
+						<div class="btn btnWithIcon" id="btnSubtraction" data-op="-">
+							<img
+								data-op="-"
+								src="icons/minus-solid.svg"
+								alt="minus symbol"
+								class="mathIcon"
+							/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="btn" id="btnDot" data-value=".">.</div>
+					<div class="btn" id="btn0" data-value="0">0</div>
+					<div class="btn" id="btnEqual">
+						<div class="btn btnWithIcon" id="btnSum" data-equal="=">
+							<img
+								src="icons/equals-solid.svg"
+								alt="equal symbol"
+								class="mathIcon"
+							/>
+						</div>
+					</div>
+					<div class="btn">
+						<div class="btn btnWithIcon" id="btnAddition" data-op="+">
+							<img
+								data-op="+"
+								src="icons/plus-solid.svg"
+								alt="addition symbol"
+								class="mathIcon"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<p>2022</p>
+			<p>by</p>
+			<a href="https://github.com/bgtti/"
+				><img src="icons/github-brands.svg" alt="Git repository of author"
+			/></a>
+		</footer>
+		<script src="index.js"></script>
+	</body>
+</html>

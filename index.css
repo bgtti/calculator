@@ -1,0 +1,157 @@
+:root {
+	--fontGoogle: 'Roboto Mono', monospace;
+	font-family: 'Roboto Mono', monospace;
+	--cVeryDarkGrey: #161616;
+	--cDarkGrey: #262626;
+	--cLightGrey: #808080;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	background-color: var(--cVeryDarkGrey);
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+h1 {
+	display: flex;
+	align-items: center;
+	flex: 100 100 100%;
+	font-weight: bolder;
+	font-size: 3em;
+	color: var(--cLightGrey);
+}
+/* The calculator container */
+#calcContainer {
+	border-radius: 3%;
+	background-color: black;
+	width: 350px;
+	height: 450px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: stretch;
+	gap: 10px;
+	padding: 25px;
+}
+/* @media screen and (min-width: 800px) {
+	#calcContainer {
+		background-color: brown;
+		width: 400px;
+		height: 600px;
+	}
+} */
+
+/* Top of calculator: user input and display of input */
+
+#displayContainer {
+	border-radius: 3%;
+	padding: 3px;
+	height: 20%;
+	min-height: 90px;
+	background-color: white;
+
+	display: flex;
+	flex-direction: column;
+	color: var(--cLightGrey);
+}
+#displayUserInput {
+	border-top-right-radius: 5%;
+	text-align: right;
+	padding: 0 5px;
+}
+#receiveUserInput {
+	border: none;
+	font-family: var(--fontGoogle);
+	font-size: 2em;
+	text-align: right;
+	flex: 100 100 100%;
+}
+#receiveUserInput:focus {
+	outline: none;
+}
+/* Calculator buttons */
+#btnsContainer {
+	flex: 100 100 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: stretch;
+	gap: 10px;
+}
+.row {
+	height: 20%;
+	flex: 100 100 100%;
+	display: flex;
+	gap: 10px;
+	/* justify-content: center;
+	align-items: stretch;
+	gap: 5px; */
+}
+.btn {
+	background-color: var(--cDarkGrey);
+	border-radius: 5%;
+	flex: 100 100 100%;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: bolder;
+	color: #ffffff;
+}
+.btnWithIcon {
+	flex-direction: row;
+	background-color: #161616;
+}
+.charBtn {
+	background-color: #1f1f1f;
+}
+.btn:hover {
+	background-color: chartreuse;
+	color: #000000;
+}
+
+/* convert hex to CSS filter:  https://codepen.io/sosuke/pen/Pjoqqp  */
+.mathIcon {
+	width: 25px;
+	filter: invert(100%) sepia(0%) saturate(758%) hue-rotate(198deg)
+		brightness(110%) contrast(101%);
+}
+.btnWithIcon:hover .mathIcon {
+	filter: invert(0%) sepia(0%) saturate(9%) hue-rotate(159deg) brightness(97%)
+		contrast(103%);
+}
+.btnBackspace {
+	width: 40px;
+}
+.multiplicationSign {
+	transform: rotate(45deg);
+}
+
+/* Footer */
+footer {
+	flex: 100 100 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 0 0 0;
+	min-height: 50px;
+}
+footer p {
+	margin-right: 7px;
+	color: #808080;
+}
+footer img {
+	width: 20px;
+	padding-left: 5px;
+	filter: invert(53%) sepia(10%) saturate(9%) hue-rotate(31deg) brightness(93%)
+		contrast(88%);
+}
