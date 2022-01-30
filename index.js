@@ -169,7 +169,7 @@ let calculator = {
             this.displayCurrentOperant();
         }
     },
-    changesToCurrentOperator: function(thisNum){
+    changesToCurrentOperand: function(thisNum){
         if (thisNum !== ".") {
             calculator.currentOperand = calculator.currentOperand + thisNum;
             calculator.displayCurrentOperant();
@@ -180,7 +180,7 @@ let calculator = {
     }
 }
 
-//EVENT LISTENERS
+//EVENT LISTENERS FOR BUTTON CLICKS
 
 // Event listener to AC button (clear all)
 btnAC.addEventListener('click', () => {
@@ -192,11 +192,11 @@ btnBackspace.addEventListener('click', () => {
     calculator.backspacing();
 }, false)
 
-// Event Listening to number clicked (and prevents user from typing 2x . )
+// Event Listening to number clicked 
 document.addEventListener('click', e => {
     if (e.target.matches('[data-value]')) {
         let thisNum = e.target.getAttribute('data-value').toString();
-        calculator.changesToCurrentOperator(thisNum);
+        calculator.changesToCurrentOperand(thisNum);
     }  
 }, false)
 
@@ -222,3 +222,40 @@ btnPercentage.addEventListener('click', ()=> {
 btnPlusMinus.addEventListener('click', ()=>{
     calculator.ifChangeSignClicked();
 }, false)
+
+//EVENT LISTENERS FOR KEYBOARD PRESSES
+const allowedNums = ["1","2","3","4","5","6","7","8","9","0","."];
+const allowedOperators = ["+","-","*","/"];
+const allowBackSpaceKey = ["Backspace"];
+const allowEnterKey = ["Enter","="];
+const allowNegative = ["-"];
+const allowDelKey = ["Delete"]
+const allowPercentKey = ["%"]
+receiveUserInput.addEventListener('keydown', (e)=>{
+    if (allowedNums.includes(e.key)){ //checks if keyboardpress is a number
+        e.preventDefault();
+        calculator.changesToCurrentOperand(e.key);
+    } else if ((allowNegative.includes(e.key)) && (calculator.currentOperand === "")){ //if - is clicked, check if user wants the current operator to be negative
+        e.preventDefault();
+        calculator.ifChangeSignClicked();
+    } else if (allowedOperators.includes(e.key)){ //check if user typed an operator
+        e.preventDefault();
+        calculator.whenOperatorSelected(e.key);
+    } else if (allowBackSpaceKey.includes(e.key)){ //check if user pressed backspace
+        e.preventDefault();
+        calculator.backspacing();
+    } else if (allowEnterKey.includes(e.key)){ //check if user pressed the enter key or =
+        e.preventDefault();
+        calculator.whenEqualSelected();
+    } else if (allowDelKey.includes(e.key)){ //check if user pressed the enter key or =
+        e.preventDefault();
+        calculator.resetCalculator();
+    }else if (allowPercentKey.includes(e.key)){ //check if user pressed the enter key or =
+        e.preventDefault();
+        calculator.ifPercentClicked();
+    }else { //if any other keyboard key was pressed, ignore it
+        e.preventDefault();        
+    }
+})
+
+
