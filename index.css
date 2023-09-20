@@ -42,14 +42,12 @@ h1 {
 }
 
 /* Top of calculator: user input and display of input */
-
 #displayContainer {
 	border-radius: 3%;
 	padding: 3px;
 	height: 20%;
 	min-height: 90px;
 	background-color: white;
-
 	display: flex;
 	flex-direction: column;
 	color: var(--cLightGrey);
@@ -69,6 +67,7 @@ h1 {
 #receiveUserInput:focus {
 	outline: none;
 }
+
 /* Calculator buttons */
 #btnsContainer {
 	flex: 100 100 100%;
